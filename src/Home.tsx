@@ -33,7 +33,7 @@ import InactiveMintButton from "./components/InactiveMintButton";
 import ProgressBar from "./components/ProgressBar";
 
 import isMobile from "./components/isMobile"
-import {startDate, startWlDate, mintPrice, supply} from "./constants";
+import {startDate, mintPrice, supply} from "./constants";
 
 
 const decimals = process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS ? +process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS!.toString() : 9;
@@ -393,9 +393,9 @@ export const MintPage = (props: HomeProps) => {
                                 <Info type="Supply" amount={itemsAvailable ? itemsAvailable : supply}/>
 
                                         {wallet && isActive &&
-                                        (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() > startWlDate : new Date() > startDate) ?
+                                        (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() > startDate : new Date() > startDate) ?
                                             <ProgressBar available={itemsAvailable} redeemed={itemsRedeemed} /> : <Countdown
-                                            date={ whitelistEnabled && (whitelistTokenBalance > 0) ? startWlDate : startDate}
+                                            date={ whitelistEnabled && (whitelistTokenBalance > 0) ? startDate : startDate}
                                             onMount={({completed}) => completed && setIsActive(!isEnded)}
                                             onComplete={() => {
                                                 setIsActive(!isEnded);
@@ -404,7 +404,7 @@ export const MintPage = (props: HomeProps) => {
                                         />
                                         }
 
-                                            {!isActive && !isEnded && candyMachine?.state.goLiveDate && (!isWLOnly || whitelistTokenBalance > 0) || (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() < startWlDate : new Date() < startDate) ? <InactiveMintButton /> : (
+                                            {!isActive && !isEnded && candyMachine?.state.goLiveDate && (!isWLOnly || whitelistTokenBalance > 0) || (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() < startDate : new Date() < startDate) ? <InactiveMintButton /> : (
                                                 !wallet ? (
                                                     <FullWidthConnectButton>Connect Wallet</FullWidthConnectButton>
                                                 ) : (!isWLOnly || whitelistTokenBalance > 0) ?
