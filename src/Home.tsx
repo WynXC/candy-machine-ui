@@ -320,7 +320,7 @@ export const MintPage = (props: HomeProps) => {
 
     return (
         <main style={{
-            backgroundColor: theme.palette.primary.dark,
+            backgroundImage: "url(" + "https://pbs.twimg.com/profile_images/1527275153595703296/jEHVHVw0_400x400.jpg" + ")",
             width: window.innerWidth > 530 ? '100%' : window.innerWidth * 0.99,
             overflowX: 'hidden',
             height: '100%',
@@ -382,14 +382,14 @@ export const MintPage = (props: HomeProps) => {
                                 height: mobileMarker ? '100%' : 'auto'
                             }}>
                                 <Typography variant="h4" style={{
-                                    color: '#fff',
+                                    color: '#f7ff05',
                                     fontFamily: 'Main',
                                     fontWeight: 'bold',
                                 }}>
-                                    Collection Name
+                                    Shirizu Mecha
                                 </Typography>
 
-                                        <Info type="price" amount={price ? isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel) : mintPrice}/>
+                                        <Info type="Price" amount={price ? isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel) : mintPrice}/>
                                 <Info type="Supply" amount={itemsAvailable ? itemsAvailable : supply}/>
 
                                         {wallet && isActive &&

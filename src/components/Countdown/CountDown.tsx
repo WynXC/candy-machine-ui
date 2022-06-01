@@ -19,11 +19,11 @@ export const CountDown = ({days, hours, minutes, seconds}: any) => {
                        textAlign: 'center'
                    }}>
                 <Typography variant={window.innerWidth > 530 ? 'h4' : 'h5'}
-                            style={{fontFamily: 'Main', color: '#fff', fontWeight: 'bold'}}>
+                            style={{fontFamily: 'Main', color: '#32fa00', fontWeight: 'bold'}}>
                     {days < 10 ? `0${days}` : days}
                 </Typography>
                 <Typography variant={window.innerWidth > 530 ? 'h5' : 'h6'} style={{
-                    color: theme.palette.primary.contrastText, fontFamily: 'Main'
+                    color: '#fa004f', fontFamily: 'Main'
                 }}>days</Typography>
             </Paper>
             <Paper elevation={0} className="item-container"
@@ -32,11 +32,11 @@ export const CountDown = ({days, hours, minutes, seconds}: any) => {
                        marginRight: window.innerWidth > 480 ? '1rem' : '1rem'
                    }}>
                 <Typography variant={window.innerWidth > 530 ? 'h4' : 'h5'}
-                            style={{fontFamily: 'Main', color: '#fff', fontWeight: 'bold'}}>
+                            style={{fontFamily: 'Main', color: '#32fa00', fontWeight: 'bold'}}>
                     {hours < 10 ? `0${hours}` : hours}
                 </Typography>
                 <Typography variant={window.innerWidth > 530 ? 'h5' : 'h6'} style={{
-                    color: theme.palette.primary.contrastText, fontFamily: 'Main'
+                    color: '#fa004f', fontFamily: 'Main'
                 }}>hrs</Typography>
             </Paper>
             <Paper elevation={0} className="item-container"
@@ -45,21 +45,21 @@ export const CountDown = ({days, hours, minutes, seconds}: any) => {
                        marginRight: window.innerWidth > 480 ? '1rem' : '1rem'
                    }}>
                 <Typography variant={window.innerWidth > 530 ? 'h4' : 'h5'}
-                            style={{fontFamily: 'Main', color: '#fff', fontWeight: 'bold'}}>
+                            style={{fontFamily: 'Main', color: '#32fa00', fontWeight: 'bold'}}>
                     {minutes < 10 ? `0${minutes}` : minutes}
                 </Typography>
                 <Typography variant={window.innerWidth > 530 ? 'h5' : 'h6'} style={{
-                    color: theme.palette.primary.contrastText, fontFamily: 'Main'
+                    color: '#fa004f', fontFamily: 'Main'
                 }}> mins </Typography>
             </Paper>
             <Paper elevation={0} className="item-container" style={{backgroundColor: theme.palette.primary.light,}}>
                 <Typography variant={window.innerWidth > 530 ? 'h4' : 'h5'}
-                            style={{fontFamily: 'Main', color: '#fff', fontWeight: 'bold'}}
+                            style={{fontFamily: 'Main', color: '#32fa00', fontWeight: 'bold'}}
                 >
                     {seconds < 10 ? `0${seconds}` : seconds}
                 </Typography>
                 <Typography variant={window.innerWidth > 530 ? 'h5' : 'h6'} style={{
-                    color: theme.palette.primary.contrastText, fontFamily: 'Main'
+                    color: '#fa004f', fontFamily: 'Main'
                 }}> secs</Typography>
             </Paper>
         </div>

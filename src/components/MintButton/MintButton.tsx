@@ -8,13 +8,13 @@ import {CandyMachine} from '../../candy-machine';
 const CTAButton = styled(Button)`
   display: block !important;
   margin: 0 auto !important;
-  background-color: var(--title-text-color) !important;
+  background-color: #16ff01 !important;
   min-width: 120px !important;
   width: 100%;
   font-size: 1em !important;
   font-family: Main !important;
   font-weight: bold !important;
-  color: #fff !important;
+  color: #000000 !important;
 `;
 
 export const MintButton = ({

@@ -1,13 +1,13 @@
 /* Customize your main colors in :root variables */
 :root {
-  --light-background-color: #2e3d4d;
-  --main-background-color: #131a21;
-  --dark-background-color: #0a0e11;
-  --title-text-color:#00d0c1;
+  --light-background-color: #f7ff05;
+  --main-background-color: #22240e;
+  --dark-background-color: #1d1e0d;
+  --title-text-color:#f7ff05;
 }
 
 body{
-background-color: var(--main-background-color);
+  background-color: var(--main-background-color);
   font-family: 'Patrick Hand', cursive;
   font-size: 1.1em;
 }

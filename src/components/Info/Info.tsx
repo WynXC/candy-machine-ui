@@ -31,7 +31,7 @@ export const Info = (props: Price) => {
                         alignItems: 'center'
                     }}>
                         <Typography display="inline" variant="h6" style={{
-                            color: '#fff',
+                            color: '#ff0077',
                             fontFamily: 'Main',
                             fontWeight: 'bold',
                             textAlign: 'center',
@@ -39,7 +39,7 @@ export const Info = (props: Price) => {
                         }}>
                             {props.type}
                             <Typography display="inline" variant="h6" style={{
-                                color: '#ff00b2',
+                                color: '#f7ff05',
                                 fontFamily: 'Main',
                                 fontWeight: 'bold',
                                 textAlign: 'center',

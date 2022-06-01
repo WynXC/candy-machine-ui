@@ -23,7 +23,7 @@ export const WalletContainer = styled.div`
 `;
 
 export const WalletAmount = styled.div`
-  color: #fff;
+  color: #000000;
   width: auto;
   padding: 5px 5px 5px 16px;
   min-width: 48px;
