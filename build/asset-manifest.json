@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4d2a0b98.chunk.css",
+    "main.js": "/static/js/main.3810701a.chunk.js",
+    "main.js.map": "/static/js/main.3810701a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8f4e4efc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8f4e4efc.js.map",
+    "static/css/2.e91b11d9.chunk.css": "/static/css/2.e91b11d9.chunk.css",
+    "static/js/2.b8ab0ed6.chunk.js": "/static/js/2.b8ab0ed6.chunk.js",
+    "static/js/2.b8ab0ed6.chunk.js.map": "/static/js/2.b8ab0ed6.chunk.js.map",
+    "static/js/3.73ed1766.chunk.js": "/static/js/3.73ed1766.chunk.js",
+    "static/js/3.73ed1766.chunk.js.map": "/static/js/3.73ed1766.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.e91b11d9.chunk.css.map": "/static/css/2.e91b11d9.chunk.css.map",
+    "static/css/main.4d2a0b98.chunk.css.map": "/static/css/main.4d2a0b98.chunk.css.map",
+    "static/js/2.b8ab0ed6.chunk.js.LICENSE.txt": "/static/js/2.b8ab0ed6.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/Regular.5b89a8df.ttf",
+    "static/media/nft_image.fac4eb0f.gif": "/static/media/nft_image.fac4eb0f.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8f4e4efc.js",
+    "static/css/2.e91b11d9.chunk.css",
+    "static/js/2.b8ab0ed6.chunk.js",
+    "static/css/main.4d2a0b98.chunk.css",
+    "static/js/main.3810701a.chunk.js"
+  ]
+}
