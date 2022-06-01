@@ -1,82 +1,82 @@
-import { useMemo } from "react";
+import './App.css';
+import { useMemo } from 'react';
+import * as anchor from '@project-serum/anchor';
+import Home from './Home';
+import { DEFAULT_TIMEOUT } from './connection';
+import { clusterApiUrl } from '@solana/web3.js';
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import {
-    ConnectionProvider,
-    WalletProvider,
-} from "@solana/wallet-adapter-react";
-import * as anchor from "@project-serum/anchor";
-import { clusterApiUrl } from "@solana/web3.js";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
-import {
-    getPhantomWallet,
-    getSlopeWallet,
-    getSolflareWallet,
-    getSolflareWebWallet,
-    getSolletWallet,
-    getSolletExtensionWallet,
-    getSolongWallet,
-    getLedgerWallet,
-    getSafePalWallet,
-} from "@solana/wallet-adapter-wallets";
+  getPhantomWallet,
+  getSlopeWallet,
+  getSolflareWallet,
+  getSolletWallet,
+  getSolletExtensionWallet,
+} from '@solana/wallet-adapter-wallets';
 
 import {
-    WalletModalProvider
-} from '@solana/wallet-adapter-react-ui';
+  ConnectionProvider,
+  WalletProvider,
+} from '@solana/wallet-adapter-react';
+import { WalletDialogProvider } from '@solana/wallet-adapter-material-ui';
 
-import "./App.css";
-import {MintPage} from "./Home";
+import { ThemeProvider, createTheme } from '@material-ui/core';
 
-require('@solana/wallet-adapter-react-ui/styles.css');
+const theme = createTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
-
-const candyMachineId = new anchor.web3.PublicKey(
-  process.env.REACT_APP_CANDY_MACHINE_ID!
-);
-
-const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
-
-const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
-const connection = new anchor.web3.Connection(rpcHost);
-
-const txTimeout = 30000; // milliseconds (confirm this works for your project)
-
-
-
-const App = () => {
-    // Custom RPC endpoint.
-  const endpoint = useMemo(() => clusterApiUrl(network), []);
-
-    // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking and lazy loading --
-    // Only the wallets you configure here will be compiled into your application, and only the dependencies
-    // of wallets that your users connect to will be loaded.
-    const wallets = useMemo(
-        () => [
-            getPhantomWallet(),
-            getSlopeWallet(),
-            getSolflareWallet(),
-            getSolflareWebWallet(),
-            getSolletWallet({ network }),
-            getSolletExtensionWallet({ network }),
-            getSolongWallet(),
-            getLedgerWallet(),
-            getSafePalWallet(),
-        ],
-        []
+const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
+  try {
+    const candyMachineId = new anchor.web3.PublicKey(
+      process.env.REACT_APP_CANDY_MACHINE_ID!,
     );
 
-  return (
+    return candyMachineId;
+  } catch (e) {
+    console.log('Failed to construct CandyMachineId', e);
+    return undefined;
+  }
+};
 
-        <ConnectionProvider endpoint={endpoint}>
-          <WalletProvider wallets={wallets} autoConnect={true}>
-            <WalletModalProvider>
-              <MintPage
-                candyMachineId={candyMachineId}
-                connection={connection}
-                txTimeout={txTimeout}
-                rpcHost={rpcHost}
-              />
-            </WalletModalProvider>
-          </WalletProvider>
-        </ConnectionProvider>
+const candyMachineId = getCandyMachineId();
+const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
+const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+const connection = new anchor.web3.Connection(
+  rpcHost ? rpcHost : anchor.web3.clusterApiUrl('devnet'),
+);
+
+const App = () => {
+  const endpoint = useMemo(() => clusterApiUrl(network), []);
+
+  const wallets = useMemo(
+    () => [
+      getPhantomWallet(),
+      getSolflareWallet(),
+      getSlopeWallet(),
+      getSolletWallet({ network }),
+      getSolletExtensionWallet({ network }),
+    ],
+    [],
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect>
+          <WalletDialogProvider>
+            <Home
+              candyMachineId={candyMachineId}
+              connection={connection}
+              txTimeout={DEFAULT_TIMEOUT}
+              rpcHost={rpcHost}
+              network={network}
+            />
+          </WalletDialogProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </ThemeProvider>
   );
 };
 
